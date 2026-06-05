@@ -1,0 +1,351 @@
+/* ==========================================
+   Alexia Kassandra Nava Sanchez
+   ========================================== */
+:root {
+    --azul-profundo: #03045e;   
+    --azul-medio: #0077b6;      
+    --azul-claro: #00b4d8;       
+    --celeste-neon: #90e0ef;     
+    --blanco-arena: #f0fafd;     
+    --texto-oscuro: #023e8a;     
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #caf0f8 0%, #ade8f4 40%, #90e0ef 100%);
+    background-attachment: fixed;
+    color: var(--texto-oscuro);
+    font-size: 11pt; 
+}
+
+header {
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    border-bottom: 6px solid var(--azul-claro);
+    box-shadow: 0 8px 32px rgba(3, 4, 94, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "◦ • ◦ • ◦";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--celeste-neon);
+    margin: 0.5rem 0 2rem 0;
+    font-weight: 300;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    max-width: 550px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--celeste-neon);
+}
+
+#search-input {
+    flex: 1;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    color: var(--azul-profundo);
+    font-weight: 600;
+    outline: none;
+}
+
+#search-input::placeholder {
+    color: #a0c4ff;
+    font-weight: 400;
+}
+
+#search-btn {
+    padding: 14px 30px;
+    background: linear-gradient(135deg, var(--azul-claro) 0%, var(--azul-medio) 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#search-btn:hover {
+    background: var(--celeste-neon);
+    color: var(--azul-profundo);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(144, 224, 239, 0.4);
+}
+
+main {
+    max-width: 750px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.welcome-message {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    border: 3px dashed var(--azul-medio);
+    box-shadow: 0 12px 24px rgba(2, 62, 138, 0.1);
+}
+
+.welcome-message h2 {
+    color: var(--azul-profundo);
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+.welcome-message em {
+    color: var(--azul-medio);
+    font-style: normal;
+    font-weight: 700;
+    background: rgba(144, 224, 239, 0.3);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.card {
+    background: var(--blanco-arena);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border-left: 8px solid var(--azul-medio); /* Acento visual izquierdo dinámico */
+    box-shadow: 0 15px 35px rgba(3, 4, 94, 0.15);
+    animation: flotarEntrada 0.6s ease-out;
+}
+
+.card small {
+    display: inline-block;
+    background: var(--azul-profundo);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: var(--azul-profundo);
+    font-size: 2rem;
+    margin: 0.8rem 0 1.5rem 0;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 5px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.02); 
+}
+
+.card p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #1c2541;
+    text-align: justify;
+}
+
+.wiki-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--azul-medio);
+    border: 2px solid var(--azul-medio);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.wiki-link:hover {
+    background-color: var(--azul-medio);
+    color: white;
+    padding-left: 25px; 
+}
+
+#loading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--azul-profundo);
+    background: white;
+    padding: 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    animation: pulsoBurbuja 1.5s infinite ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes flotarEntrada {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.98); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+@keyframes pulsoBurbuja {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.03); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.95rem;
+    color: var(--azul-profundo);
+    font-weight: 500;
+}
+.tags-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap; 
+}
+
+.tag-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid var(--celeste-neon);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.tag-btn:hover {
+    background: white;
+    color: var(--azul-profundo);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA NAVBAR MARINA
+   ========================================================================== */
+
+/* Fondo de la barra: Degradado que simula el agua profunda */
+.navbar-marina {
+    background: linear-gradient(135deg, #001d3d 0%, #003566 100%);
+    border-bottom: 3px solid #00c49f; /* Línea brillante estilo arrecife bioluminiscente */
+    padding: 0.8rem 0;
+    font-family: inherit; /* Utiliza la misma fuente de tu página */
+}
+
+/* Enlace de "Inicio" o Marca */
+.navbar-marina .navbar-brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.navbar-marina .navbar-brand:hover {
+    transform: scale(1.05);
+    color: #00f2fe !important;
+}
+
+/* Enlaces principales (Unidad 1, 2, 3) */
+.navbar-marina .nav-link {
+    color: #e0f2fe !important;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem !important;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Efecto Hover en los enlaces principales */
+.navbar-marina .nav-link:hover, 
+.navbar-marina .nav-link:focus {
+    color: #ffffff !important;
+    background-color: rgba(0, 180, 216, 0.2); /* Resplandor azul claro */
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.4);
+}
+
+/* El botón de hamburguesa en móviles */
+.navbar-marina .navbar-toggler {
+    border-color: rgba(0, 242, 254, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Icono de hamburguesa en color blanco/celeste */
+.navbar-marina .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 242, 254, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Menú Desplegable (Dropdown) */
+.navbar-marina .dropdown-menu {
+    background: rgba(0, 29, 61, 0.95); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(5px); /* Efecto cristal esmerilado */
+    border: 2px solid #00b4d8;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    margin-top: 10px;
+}
+
+/* Elementos dentro del menú desplegable */
+.navbar-marina .dropdown-item {
+    color: #90e0ef !important;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+/* Hover dentro del menú desplegable */
+.navbar-marina .dropdown-item:hover {
+    background: linear-gradient(90deg, #0077b6, #00b4d8);
+    color: #ffffff !important;
+    padding-left: 1.8rem; /* Pequeña animación de desplazamiento */
+}

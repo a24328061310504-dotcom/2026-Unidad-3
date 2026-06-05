@@ -1,0 +1,55 @@
+
+body{
+    background-color:#724E56;
+    color:#F5F5F5; 
+}
+
+h1{
+    font-family:'Dancing Script', cursive;
+    color:#F8EDEB; 
+    text-align:center;
+}
+
+.navbar{
+    background-color:#584E59;
+    border:none;
+}
+
+.navbar-brand,
+.navbar-nav > li > a{
+    color:#FFFFFF !important;
+    font-family:'Lora', serif;
+}
+
+.navbar-nav > li > a:hover{
+    color:#FFD6E0 !important; 
+}
+
+.dropdown-menu{
+    background-color:#F8EDEB;
+}
+
+.dropdown-menu > li > a{
+    color:#a92e2e;
+    font-family:'Lora', serif;
+}
+
+.dropdown-menu > li > a:hover{
+    background-color:#b96262;
+}
+
+.jumbotron{
+    background-color:#a45656;
+    color:#FFFFFF;
+    padding:40px;
+    border-radius:10px;
+}
+
+.btn-primary{
+    background-color:#D08C9C;
+    border:none;
+}
+
+.btn-primary:hover{
+    background-color:#B87486;
+}

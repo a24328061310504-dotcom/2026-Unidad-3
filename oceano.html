@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de la Vida Marina</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="oceano.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-marina">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html">⚓ Inicio</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto"> <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Unidad 1
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="meterdatos01.php">Meter Datos</a></li>
+                            <li><a class="dropdown-item" href="mostrar.php">Mostrar Datos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Unidad 2
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="relacionales1.php">Relacionales 1</a></li>
+                            <li><a class="dropdown-item" href="relacionales2.php">Relacionales 2</a></li>
+                            <li><a class="dropdown-item" href="capturadebasededatos.php">Captura de Base de Datos</a></li>
+                            <li><a class="dropdown-item" href="musica.php">Música</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Unidad 3
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="peliculas.html">Buscador de películas</a></li>
+                            <li><a class="dropdown-item" href="pokedex.html">POKEDEX</a></li>
+                            <li><a class="dropdown-item" href="oceano.html">Vida Marina</a></li>
+                        </ul>
+                    </li>
+                </ul> </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Océano Interactivo</h1>
+        <p>Descubre los secretos del mundo marino</p>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Ej. Tiburón blanco, Mantarraya, Pez payaso...">
+            <button id="search-btn">Buscar</button>
+        </div>
+        <div class="tags-container">
+            <button class="tag-btn" onclick="buscarPorTag('Tiburón')">🦈 Tiburones</button>
+            <button class="tag-btn" onclick="buscarPorTag('Ballena')">🐋 Cetáceos</button>
+            <button class="tag-btn" onclick="buscarPorTag('Pulpo')">🐙 Moluscos</button>
+            <button class="tag-btn" onclick="buscarPorTag('Arrecife de coral')">🪸 Arrecifes</button>
+            <button class="tag-btn" onclick="buscarPorTag('Tortuga marina')">🐢 Reptiles</button>
+            <button class="tag-btn tag-prehistorico" onclick="buscarPorTag('Megalodón')">🦖 ¡Era Prehistórica!</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="loading" class="hidden">Buscando en las profundidades...</div>
+        <div id="results-container">
+            <div class="welcome-message">
+                <h2>¿Qué deseas explorar hoy?</h2>
+                <p>Escribe el nombre de un pez o criatura marina en el buscador para obtener información en tiempo real.</p>
+
+                <div class="Dato-curioso" style="margin-top: 1.5rem; background: rgba(0, 119, 182, 0.1); padding: 12px; border-radius: 12px; font-size: 0.95rem; border-left: 4px solid var(--azul-claro);">
+                    <strong>💡 Tip de Biólogo Marino:</strong> ¡Nuestro radar también detecta el pasado! Intenta buscando criaturas extintas como el <em>Megalodón</em>, el <em>Mosasaurio</em> o el <em>Anomalocaris</em>.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Explorador de la Vida Marina - Alexia Kassandra Nava Sanchez</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="oceano.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+/* alexia kassandra nava sanchez */
+html,
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0000, #220000, #4d0000);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* CORRECCIÓN DE CONTENEDOR: Cambiado de .container a .pokedex-main-container para evitar choques con Bootstrap */
+.pokedex-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px);
+    gap: 80px;
+    padding: 20px 40px 40px 40px;
+    flex-wrap: wrap;
+}
+
+/* TARJETAS */
+.info,
+.pokemon-container,
+.datos{
+    width: 320px;
+    color: white;
+    text-align: center;
+
+    background: rgba(20, 0, 0, 0.75);
+    border-radius: 25px;
+    padding: 25px;
+
+    border: 1px solid rgba(255, 80, 80, 0.2);
+
+    box-shadow:
+        0 0 25px rgba(255, 0, 0, 0.25),
+        inset 0 0 20px rgba(255, 0, 0, 0.05);
+
+    backdrop-filter: blur(8px);
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    color: #ff4d4d;
+    font-size: 42px;
+    margin-bottom: 25px;
+    text-shadow:
+        0 0 10px rgba(255,0,0,.8),
+        0 0 25px rgba(255,0,0,.4);
+}
+
+.imagenes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo{
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,0,0,.8))
+        drop-shadow(0 0 30px rgba(255,0,0,.4));
+}
+
+.pokemon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pokeImg{
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    filter:
+        drop-shadow(0 0 20px rgba(255,0,0,.8))
+        drop-shadow(0 0 40px rgba(255,0,0,.4));
+}
+
+.pokeimg1{
+    color: white;
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.pokeid{
+    font-size: 90px;
+    color: #ff3333;
+    font-weight: bold;
+    text-shadow:
+        0 0 15px rgba(255,0,0,.8),
+        0 0 35px rgba(255,0,0,.5);
+}
+
+.pokeorder{
+    font-size: 28px;
+    color: #ff9999;
+    margin-bottom: 20px;
+}
+
+.placeholder{
+    width: 100%;
+    max-width: 250px;
+    height: 50px;
+
+    padding-left: 15px;
+
+    font-size: 22px;
+    color: white;
+
+    border-radius: 15px;
+    border: 2px solid #ff4d4d;
+
+    background: rgba(255,255,255,.08);
+
+    outline: none;
+    margin-top: 20px;
+}
+
+.placeholder::placeholder{
+    color: rgba(255,255,255,.6);
+}
+
+.placeholder:focus{
+    box-shadow: 0 0 15px rgba(255,0,0,.7);
+}
+
+.button{
+    width: 200px;
+    height: 55px;
+
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(
+        45deg,
+        #990000,
+        #ff0000,
+        #ff3333
+    );
+
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button:hover{
+    transform: translateY(-3px) scale(1.05);
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,.8),
+        0 0 40px rgba(255,0,0,.5);
+}
+
+.datos h2,
+.datos h3{
+    color: white;
+    margin-bottom: 15px;
+}
+
+#miCanvas{
+    width: 100%;
+    height: 320px !important;
+
+    margin-top: 15px;
+
+    background: rgba(255,255,255,.03);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+img{
+    max-width: 100%;
+}
+
+@media (max-width: 1000px){
+    .pokedex-main-container{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .info,
+    .pokemon-container,
+    .datos{
+        width: 95%;
+        max-width: 400px;
+    }
+
+    .fondo,
+    #pokeImg{
+        width: 220px;
+        height: 220px;
+    }
+
+    .pokeid{
+        font-size: 60px;
+    }
+
+    h1{
+        font-size: 32px;
+    }
+}
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA NAVBAR DE POKÉMON (Z-INDEX REFORZADO)
+   ========================================================================== */
+.navbar-pokemon {
+    background-color: #0d0202 !important; /* Negro rojizo profundo */
+    border-bottom: 4px solid #ff3333; /* Rojo brillante que combina con tu H1 */
+    padding: 0.6rem 0;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.35);
+    
+    /* Obliga a la barra a posicionarse al frente de todo el entorno flexbox */
+    position: relative;
+    z-index: 99999 !important;
+    width: 100%;
+}
+
+.navbar-pokemon .navbar-brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+    transition: all 0.3s ease;
+}
+
+.navbar-pokemon .navbar-brand:hover {
+    color: #ff3333 !important;
+    text-shadow: 0 0 15px #ff0000;
+}
+
+.navbar-pokemon .nav-link {
+    color: #e0e0e0 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem !important;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.navbar-pokemon .nav-link:hover,
+.navbar-pokemon .nav-link:focus {
+    color: #ff3333 !important;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.navbar-pokemon .navbar-toggler {
+    border-color: #ff3333;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.navbar-pokemon .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ff3333' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-pokemon .dropdown-menu {
+    background-color: #140202; /* Fondo a tono con la barra */
+    border: 2px solid #ff3333;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+    margin-top: 8px;
+    padding: 0;
+    overflow: hidden;
+    z-index: 100000 !important; /* Desplegable al frente de los canvas y graficas */
+}
+
+.navbar-pokemon .dropdown-item {
+    color: #ffffff !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.7rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.navbar-pokemon .dropdown-item:hover {
+    background: linear-gradient(90deg, #ff3333 0%, #990000 100%);
+    color: #ffffff !important;
+    padding-left: 1.8rem;
+}

@@ -1,0 +1,309 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y BASE
+   ========================================================================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0a0000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container{
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* TITULO */
+h1{
+    color: #ffffff;
+    font-family: 'Screamous', sans-serif;
+    margin-bottom: 15px;
+}
+
+/* SUBTITULO */
+.container h3{
+    color: #ff4d4d;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+/* FORMULARIO DE BUSQUEDA */
+form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* INPUT DE TEXTO */
+input[type="text"]{
+    width: 300px;
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px solid #ff4d4d;
+    font-size: 16px;
+    outline: none;
+    background-color: #1a0000;
+    color: white;
+}
+
+/* BOTON ENVIAR */
+input[type="submit"]{
+    padding: 12px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #cc0000;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* HOVER BOTON */
+input[type="submit"]:hover{
+    background-color: #ff1a1a;
+    color: white;
+}
+
+/* CONTENEDOR GRAL DE PELICULAS */
+#main{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   TARJETAS DE PELÍCULAS (EFECTO HOVER OVERLAY TRANSPARENTE)
+   ========================================================================== */
+
+/* TARJETAS */
+.movie{
+    width: 250px;
+    height: 370px; /* Forzamos un alto fijo para que no se estire hacia abajo */
+    max-width: 250px;
+    background-color: #1a0000;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(255,0,0,0.4);
+    
+    /* Obliga a los textos absolutos a quedarse dentro de la tarjeta */
+    position: relative; 
+}
+
+/* EFECTO HOVER DE LA TARJETA */
+.movie:hover{
+    transform: scale(1.05);
+}
+
+/* IMAGEN DEL PÓSTER */
+.movie img{
+    width: 100%;
+    height: 100%; /* Ocupa el 100% de la tarjeta */
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+/* Cuando pases el mouse por la tarjeta, el póster se vuelve un poco transparente */
+.movie:hover img {
+    opacity: 0.35; 
+}
+
+/* CAPA CON EL TEXTO QUE SE MUESTRA EN TRANSPARENTE */
+.movie-content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fondo negro con transparencia (0.75) para que la imagen se vea al fondo */
+    background: rgba(0, 0, 0, 0.75); 
+    
+    /* Desenfoque de fondo cinematográfico */
+    backdrop-filter: blur(3px); 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 15px;
+    box-sizing: border-box;
+    
+    /* Activa scroll interno si la descripción es muy larga sin romper el diseño */
+    overflow-y: auto; 
+    
+    /* TOTALMENTE OCULTO POR DEFECTO */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* AL PASAR EL MOUSE: Aparece la capa de texto transparente encima de la imagen */
+.movie:hover .movie-content-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* INFORMACION (Título y Nota) */
+.movie-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    color: white;
+    border-bottom: 1px solid rgba(255, 77, 77, 0.3); /* Línea roja divisoria */
+}
+
+/* TITULO DE PELICULA */
+.movie-info h3{
+    font-size: 15px;
+    margin: 0;
+    margin-right: 10px;
+    color: white;
+    text-align: left;
+}
+
+/* OVERVIEW Y DETALLES */
+.overview{
+    padding-top: 10px;
+    color: #f0f0f0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* TITULOS INTERNOS (Overview y Release Date) */
+.overview h3{
+    color: #ff4d4d;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 12px;
+    text-align: left;
+}
+
+/* TEXTO DE DESCRIPCIONES */
+.overview p{
+    margin-bottom: 0;
+}
+
+/* COLORES DINÁMICOS DE CALIFICACION */
+.blue { 
+    color: #00e5ff; 
+    font-weight: bold;
+}
+
+.green{
+    color: #66ff66;
+    font-weight: bold;
+}
+
+.orange{
+    color: #ffb347;
+    font-weight: bold;
+}
+
+.red{
+    color: #ff3333;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA NAVBAR DE CINE (NEGRO Y ROJO)
+   ========================================================================== */
+
+/* Fondo de la barra: Negro mate profundo con un borde inferior rojo neón */
+.navbar-cine {
+    background-color: #0c0c0c !important;
+    border-bottom: 3px solid #e50914; 
+    padding: 0.7rem 0;
+}
+
+/* Enlace "Inicio" */
+.navbar-cine .navbar-brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #ffffff !important;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* Hover en Inicio: Resplandor rojo */
+.navbar-cine .navbar-brand:hover {
+    color: #e50914 !important;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+}
+
+/* Enlaces de las Unidades (1, 2 y 3) */
+.navbar-cine .nav-link {
+    color: #bcbcbc !important;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem !important;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+/* Hover en los enlaces principales */
+.navbar-cine .nav-link:hover,
+.navbar-cine .nav-link:focus {
+    color: #ffffff !important;
+    background-color: rgba(229, 9, 20, 0.15); 
+}
+
+/* Botón de menú para celulares */
+.navbar-cine .navbar-toggler {
+    border-color: #e50914;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Ícono del botón de menú adaptado a color rojo */
+.navbar-cine .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23e50914' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Caja del menú desplegable (Dropdown) */
+.navbar-cine .dropdown-menu {
+    background-color: #141414; 
+    border: 1px solid #e50914;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    margin-top: 8px;
+    padding: 0.4rem 0;
+}
+
+/* Enlaces dentro del menú desplegable */
+.navbar-cine .dropdown-item {
+    color: #e5e5e5 !important;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+/* Hover en las opciones del menú desplegable */
+.navbar-cine .dropdown-item:hover {
+    background-color: #e50914;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* Ajuste opcional para centrar la sección de títulos de tu página */
+.header-container h1 {
+    font-family: 'Screamous', sans-serif; 
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+
+.header-container h3 {
+    color: #e50914; 
+    font-weight: 400;
+}
